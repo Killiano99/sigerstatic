@@ -11,7 +11,7 @@ In addition, ~97% of people would win at gambling if they just stuck with it. St
 \
 Never give up on the possibility of success. Please.
 
-###Getting Started
+### Getting Started
 
 ### Dependencies
 
