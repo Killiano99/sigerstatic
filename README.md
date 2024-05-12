@@ -6,7 +6,9 @@ Gamble your life away for fun :)
 
 According to various studies conducted by top MIT researchers, "99% of gamblers quit before they win big." \
 This is obviously true, so according to peer-reviewed calculations, you should, in fact, gamble more. \
+\
 In addition, ~97% of people would win at gambling if they just stuck with it. Stop quitting. \
+\
 Never give up on the possibility of success. Please.
 
 ###Getting Started
