@@ -40,7 +40,7 @@ public class Stock {
                 eqPrice *= 10;
             }
         }
-        //System.out.println(name + "'s price changed by " + ((int)(change * 10000) / 100) + "% to " + toPriceDecimal(price) + "\n");
+        System.out.println(name + "'s price changed by " + ((int)(change * 10000) / 100) + "% to " + toPriceDecimal(price) + "\n");
     
     }
     private String toPriceDecimal(double d) {
