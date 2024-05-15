@@ -1,4 +1,4 @@
-java.util.*;
+import java.util.*;
 public class Casino {
 
     ArrayList<Game> a = new ArrayList<Game>();

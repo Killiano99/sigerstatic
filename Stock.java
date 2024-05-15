@@ -1,5 +1,6 @@
-import java.util.*;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Random;
 public class Stock {
     String name;
     double price;
@@ -7,45 +8,48 @@ public class Stock {
     double randomness;
     double priceChange = 0;
     Random rand = new Random();
-    ArrayList<String> previous5Prices = new ArrayList<String>();
+    ArrayList<Double> previousPrices = new ArrayList<Double>();
     double sdChange;
+    double originalPrice;
 
-    public Stock(String name, double eqPrice, double randomness) {
+    public Stock(String name, double originalPrice, double randomness) {
         this.name = name;
         this.randomness = randomness;
-        this.eqPrice = eqPrice;
-        price = rand.nextGaussian(eqPrice, eqPrice * randomness / 2);
-        sdChange = Math.abs(rand.nextGaussian(0, randomness / 16));
-        //System.out.println("randomness: " + randomness);
-        //System.out.println("eqPrice: " + eqPrice);
-        //System.out.println("sdChange: " + sdChange);
+        this.originalPrice = originalPrice;
+        eqPrice = originalPrice + originalPrice * rand.nextGaussian() * 0.2;
+        price = rand.nextGaussian() * eqPrice * randomness * randomness / 10 + eqPrice;
+        sdChange = Math.abs(rand.nextGaussian() * randomness / 16);
+        System.out.println("original: " + originalPrice);
+        System.out.println("randomness: " + randomness);
+        System.out.println("eqPrice: " + eqPrice);
+        System.out.println("sdChange: " + sdChange);
+        System.out.println();
     }
     
     public void priceChange() {
-        double change = rand.nextGaussian(0,sdChange);
-        if(price - eqPrice > 0 && change < 0) {
-            change *= 1 + ((price/(eqPrice * rand.nextInt(2,5))) * (1.25-randomness));
+        double change = rand.nextGaussian() * sdChange;
+        if((price - eqPrice < 0 && change > 0) || (price - eqPrice > 0 && change < 0)) {
+            change *= 1 + ((((80.0/3) * Math.pow(randomness, 3) - 28 * Math.pow(randomness, 2) + 34 * randomness / 3)) * Math.abs(eqPrice - price) / eqPrice);
+            //System.out.println("change: " +change);
         }
-        else if(price - eqPrice < 0 && change > 0) {
-            change *= 1 + ((price/(eqPrice * rand.nextInt(2,5))) * (1.25-randomness));
-        }
-        previous5Prices.add(toPriceDecimal(price));
-        if(previous5Prices.size() > 5) {
-            previous5Prices.remove(5);
-        }
+        previousPrices.add(price);
         price *= 1 + change;
-        if((int)(price *10) == 0) {
-            price = eqPrice * 0.10 + 1;
-            if(eqPrice < 1) {
-                eqPrice *= 10;
-            }
+        if(price < 0) {
+            price = eqPrice * 0.01;
         }
-        System.out.println(name + "'s price changed by " + ((int)(change * 10000) / 100) + "% to " + toPriceDecimal(price) + "\n");
-    
+        System.out.println(name + "'s price changed by " + toDecimal(change * 100, 4) + "% to " + toPriceDecimal(price));
     }
-    private String toPriceDecimal(double d) {
+    public static String toPriceDecimal(double d) {
         DecimalFormat df = new DecimalFormat("#.00");
         return "$" + df.format(d);
+    }
+    public static String toDecimal(double d, int zerosAfterDecimal) {
+        String z = "#.";
+        for(int i = 0; i < zerosAfterDecimal; i++) {
+            z += "0";
+        }
+        DecimalFormat df = new DecimalFormat(z);
+        return df.format(d);
     }
 
     public double getPrice() {
@@ -55,16 +59,25 @@ public class Stock {
     public void advanceDay() {
         priceChange();
         randomEqChange();
+        System.out.println("eqPrice: " + toPriceDecimal(eqPrice));
+        System.out.println("original: " + toPriceDecimal(originalPrice));
+        System.out.println("\n");
     }
 
     private void randomEqChange() {   
-        if(rand.nextInt(1,100) <= randomness * 5 + 1) {
-            
-            eqPrice *= rand.nextGaussian(1, randomness / 10);
-            if(rand.nextInt(0,20) == 0) {
-                eqPrice *= rand.nextGaussian(1, randomness / 2);
-            }
+        //implement business success into eq change later
+
+        double eqChange = rand.nextGaussian() * randomness / 20;
+        //System.out.println(eqChange);
+        if(((((80.0/3) * Math.pow(randomness, 3) - 28 * Math.pow(randomness, 2) + 34 * randomness / 3)) > (Math.abs(originalPrice - eqPrice)/originalPrice)) && ((eqPrice - originalPrice < 0 && eqChange > 0) || (eqPrice - originalPrice > 0 && eqChange < 0))) {
+            //System.out.println(((((80.0/3) * Math.pow(randomness, 3) - 28 * Math.pow(randomness, 2) + 34 * randomness / 3)) * Math.abs(originalPrice - eqPrice) / originalPrice));
+            eqChange *= ((((80.0/3) * Math.pow(randomness, 3) - 28 * Math.pow(randomness, 2) + 34 * randomness / 3)) * Math.abs(originalPrice - eqPrice) / originalPrice);
         }
+        System.out.println("eqchange: " + toDecimal(eqChange * 100,4) + "%");
+        eqPrice *= eqChange + 1;
+    }
+    public ArrayList<Double> getPreviousPrices() {
+        return previousPrices;
     }
     
 }
