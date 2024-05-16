@@ -1,3 +1,47 @@
+
+<div align="center">
+  
+![GitHub repo size](https://img.shields.io/github/repo-size/Ray0716/sigerstatic?style=for-the-badge&logo=github&logoColor=white&color=teal)
+![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/t/Ray0716/sigerstatic?style=for-the-badge&logo=git&logoColor=white&color=orange)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/Ray0716/sigerstatic/master?style=for-the-badge&logo=commit&logoColor=white)
+![GitHub top language](https://img.shields.io/github/languages/top/Ray0716/sigerstatic?style=for-the-badge&logo=javascript&logoColor=white)
+![GitHub contributors](https://img.shields.io/github/contributors/Ray0716/sigerstatic?style=for-the-badge&color=red)
+![GitHub Repo stars](https://img.shields.io/github/stars/Ray0716/sigerstatic?style=for-the-badge)
+
+</div>
+
+
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="logo.png" alt="Logo" width = "240">
+  </a>
+
+  <!-- <h3 align="center">UniNav</h3> -->
+  
+<br>
+<p></p>
+
+  <p align="center">
+Gamble your life away. Made with Java (under coersion)    <br />
+    <a href="https://github.com/Ray0716/sigerstatic"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://example.com">View Demo</a>
+    ·
+    <a href="https://github.com/Ray0716/sigerstatic/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/Ray0716/sigerstatic/issues">Request Feature</a>
+  </p>
+</div>
+
+
+
+
+
+
+
 # Sigerstatic
 
 Gamble your life away for fun :)
