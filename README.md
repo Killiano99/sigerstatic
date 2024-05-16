@@ -15,7 +15,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="logo.png" alt="Logo" width = "240">
+    <img src="https://www.ncsasports.org/_next/image?url=https%3A%2F%2Fs3.amazonaws.com%2Frms-rmfiles-production%2Fclient_photos%2Fathlete_2568901_profile.jpg&w=384&q=75" alt="Logo" width = "140">
   </a>
 
   <!-- <h3 align="center">UniNav</h3> -->
@@ -24,7 +24,8 @@
 <p></p>
 
   <p align="center">
-Gamble your life away. Made with Java (under coersion)    <br />
+Gamble your life away. Made with Java (under coersion).    <br />
+    <h1>mr sigerson is sigma</h1>
     <a href="https://github.com/Ray0716/sigerstatic"><strong>Explore the docs »</strong></a>
     <br />
     <br />
