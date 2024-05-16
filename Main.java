@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
+        Screen.run();
         Stock gamestop = new Stock("Gamestop", 100, 0.5);
         advanceManyDays(gamestop, 1000);
         
