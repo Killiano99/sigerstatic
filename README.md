@@ -25,7 +25,7 @@
 
   <p align="center">
 Gamble your life away. Made with Java (under coersion).    <br />
-    <h1>mr sigerson is sigma</h1>
+    <h1>SIGERSTATIC</h1>
     <a href="https://github.com/Ray0716/sigerstatic"><strong>Explore the docs »</strong></a>
     <br />
     <br />
