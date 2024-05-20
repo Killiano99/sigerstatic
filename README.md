@@ -15,7 +15,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="[https://www.ncsasports.org/_next/image?url=https%3A%2F%2Fs3.amazonaws.com%2Frms-rmfiles-production%2Fclient_photos%2Fathlete_2568901_profile.jpg](https://github.com/Killiano99/sigerstatic/blob/master/Image%20213.jpg?raw=true)&w=380&q=75" alt="Logo" width = "380">
+    <img src="Image%20213.jpg" alt="Logo" width = "380">
   </a>
 
   <!-- <h3 align="center">UniNav</h3> -->
