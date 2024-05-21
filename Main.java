@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        //Screen.run();
+        Screen.run();
         Casino slots = new Casino(99943); 
         slots.play();
         Blackjack.runBlackjack();
