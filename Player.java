@@ -1,6 +1,6 @@
 import java.util.*;;
 public class Player {
-    double money;
+    static double money;
     ArrayList<PlayerStock> ownedStocks = new ArrayList<PlayerStock>();
     //implement job later
     //implement other stuff too
@@ -10,8 +10,11 @@ public class Player {
     public double getMoney() {
         return money;
     }
-    public void changeMoney(double change) {
+    static public void changeMoney(double change) {
         money += change;
+        if(money < 0) {
+            money = 0;
+        }
     }
     public ArrayList<PlayerStock> getOwnedStocks() {
         return ownedStocks;

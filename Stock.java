@@ -1,5 +1,3 @@
-import java.text.DecimalFormat; // Import the DecimalFormat class to format decimal numbers
-
 import java.util.ArrayList; // Import the ArrayList class to store previous prices
 
 import java.util.Random; // Import the Random class to generate random numbers
@@ -51,24 +49,10 @@ public class Stock {
             price = eqPrice * 0.01;
         }
         // Print out the price change
-        System.out.println(name + "'s price changed by " + toDecimal(change * 100, 4) + "% to " + toPriceDecimal(price));
+        System.out.println(name + "'s price changed by " + Price.toDecimal(change * 100, 4) + "% to " + Price.toPriceDecimal(price));
     }
 
-    // Helper method to format a double as a price string
-    public static String toPriceDecimal(double d) {
-        DecimalFormat df = new DecimalFormat("#.00");
-        return "$" + df.format(d);
-    }
-
-    // Helper method to format a double with a specified number of decimal places
-    public static String toDecimal(double d, int zerosAfterDecimal) {
-        String z = "#.";
-        for (int i = 0; i < zerosAfterDecimal; i++) {
-            z += "0";
-        }
-        DecimalFormat df = new DecimalFormat(z);
-        return df.format(d);
-    }
+    
 
     // Getter method to retrieve the current stock price
     public double getPrice() {
@@ -79,8 +63,8 @@ public class Stock {
     public void advanceDay() {
         priceChange(); // Calculate the price change for the day
         randomEqChange(); // Update the equilibrium price with a random change
-        System.out.println("eqPrice: " + toPriceDecimal(eqPrice));
-        System.out.println("original: " + toPriceDecimal(originalPrice));
+        System.out.println("eqPrice: " + Price.toPriceDecimal(eqPrice));
+        System.out.println("original: " + Price.toPriceDecimal(originalPrice));
         System.out.println("\n");
     }
 
@@ -92,7 +76,7 @@ public class Stock {
         if (((((80.0 / 3) * Math.pow(randomness, 3) - 28 * Math.pow(randomness, 2) + 34 * randomness / 3)) > (Math.abs(originalPrice - eqPrice) / originalPrice)) && ((eqPrice - originalPrice < 0 && eqChange > 0) || (eqPrice - originalPrice > 0 && eqChange < 0))) {
             eqChange *= ((((80.0 / 3) * Math.pow(randomness, 3) - 28 * Math.pow(randomness, 2) + 34 * randomness / 3))) * Math.abs(originalPrice - eqPrice) / originalPrice;
         }
-        System.out.println("eqchange: " + toDecimal(eqChange * 100, 4) + "%");
+        System.out.println("eqchange: " + Price.toDecimal(eqChange * 100, 4) + "%");
         eqPrice *= eqChange + 1;
     }
 

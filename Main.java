@@ -3,12 +3,6 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         Screen.run();
-        Casino slots = new Casino(99943); 
-        slots.play();
-        Blackjack.runBlackjack();
-        Stock gamestop = new Stock("Gamestop", 100, 0.5);
-        advanceManyDays(gamestop, 1000);
-        
     }
 
     public static void advanceManyDays(Stock stock, int days) {
@@ -17,13 +11,13 @@ public class Main {
             stock.advanceDay();
         }
         ArrayList<Double> prices = stock.getPreviousPrices();
-        System.out.println(Stock.toPriceDecimal(prices.get(0)));
+        System.out.println(Price.toPriceDecimal(prices.get(0)));
         for(int i = 1; i < prices.size(); i++) {
             if(prices.get(i) > prices.get(i - 1)) {
-                System.out.println("\u001B[32m" + Stock.toPriceDecimal(prices.get(i)) + "\u001B[0m");
+                System.out.println(Price.toPriceDecimal(prices.get(i)));
             }
             else {
-                System.out.println("\u001B[31m" + Stock.toPriceDecimal(prices.get(i)) + "\u001B[0m");
+                System.out.println(Price.toPriceDecimal(prices.get(i)));
             }
         }
     }
